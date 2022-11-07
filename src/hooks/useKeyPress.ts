@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 export const useKeyPress: (
-  targetKey: "ArrowUp" | "ArrowDown" | "Enter"
-) => boolean = (targetKey) => {
+  targetKey: "ArrowUp" | "ArrowDown" | "Enter", ref: any
+) => boolean = (targetKey, ref) => {
   const [keyPressed, setKeyPressed] = useState(false);
 
   function downHandler({ key }: KeyboardEvent) {
@@ -18,12 +18,14 @@ export const useKeyPress: (
   };
 
   useEffect(() => {
-    window.addEventListener("keydown", downHandler);
-    window.addEventListener("keyup", upHandler);
+    ref.current.addEventListener("keydown", downHandler);
+    ref.current.addEventListener("keyup", upHandler);
 
     return () => {
-      window.removeEventListener("keydown", downHandler);
-      window.removeEventListener("keyup", upHandler);
+      if(ref.current) {
+         ref.current.removeEventListener("keydown", downHandler);
+          ref.current.removeEventListener("keyup", upHandler);
+      }
     };
   }, []);
 

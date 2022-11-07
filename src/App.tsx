@@ -37,9 +37,13 @@ const items = [
 
 function App() {
   const classes = useStyles();
-  const { Dropdown, selectedItems: _selectedItems } = useDropdown({
+  const { Dropdown: CategoryDropDown1 } = useDropdown({
     items,
     placeholderText: "Select category",
+  });
+  const { Dropdown: CategoryDropDown2 } = useDropdown({
+    items,
+    placeholderText: "Select another category",
   });
 
   return (
@@ -55,7 +59,11 @@ function App() {
         and to select/unselect use
         <kbd className={classes.kbd}>Enter</kbd>
       </p>
-      <Dropdown />
+      <label className={classes.label}>Category one</label>
+      <CategoryDropDown1 />
+      <br></br>
+      <label className={classes.label}>Category one</label>
+      <CategoryDropDown2 />
     </div>
   );
 }

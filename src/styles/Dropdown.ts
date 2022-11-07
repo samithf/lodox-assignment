@@ -4,6 +4,7 @@ export const useStyles = createUseStyles({
   dropDownContainer: {
     width: "100%",
     fontSize: "1.1rem",
+    outline: "none"
   },
   selectedItems: {
     display: "flex",
@@ -53,4 +54,5 @@ export const useStyles = createUseStyles({
     height: 16,
     width: 16,
   },
+ 
 });

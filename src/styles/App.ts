@@ -19,4 +19,8 @@ export const useStyles = createUseStyles({
   description: {
     paddingBlock: 15,
   },
+   label: {
+    paddingBlock: 5,
+    display: "inline-block"
+  }
 });
